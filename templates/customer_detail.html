@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="post-entry">
+    <h2>{{ customer.customer_name }}</h2>
+    <p>{{ customer.customer_email }}</p>
+</div>
+
+
+<a href="{% url 'customer_delete' customer.pk %}">+ Delete Customer</a>
+<a href="{% url 'customer_edit' customer.pk %}">+ Edit Customer</a>
+
+{% endblock content %}
