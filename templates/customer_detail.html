@@ -5,6 +5,11 @@
 <div class="post-entry">
     <h2>{{ customer.customer_name }}</h2>
     <p>{{ customer.customer_email }}</p>
+    <ul>
+        {% for order in customer.orders.all %}
+        <li>Order Number: <a href="{% url 'order_detail' order %}"> {{order}} </a> {{ order.description }} </li>
+        {% endfor %}
+    </ul>
 </div>
 
 

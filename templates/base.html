@@ -12,10 +12,11 @@
     <div class="container">
         <header>
             <div class="nav-left">
-                <h1><a href="/">Customers</a></h1>
+                <h1><a href="{% url 'home' %}">Customers</a> | <a href="{% url 'order_list' %}">Orders</a></h1>
             </div>
             <div class="nav-right">
-                <a href="{% url 'customer_new' %}">+ New Customer</a>
+                <a href="{% url 'customer_new' %}"> + New Customer </a>
+                <a href="{% url 'order_new' %}"> + New Order</a>
             </div>
         </header>
         {% block content %}
