@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="post-entry">
+    <h2>Order Number:  {{ order.order_number }}</h2>
+    <p><strong>Customer Name: </strong> <a href="{% url 'customer_detail' order.customer_number.pk %}"> {{ order.customer_number }}</p></a>
+    <p></p><strong>Order Description: </strong>{{ order.description }}</p>
+    <p></p><strong>Date Ordered: </strong>{{ order.date_created }}</p>
+</div>
+
+
+
+{% endblock content %}

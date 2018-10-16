@@ -1,0 +1,13 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for order in object_list %}
+<div class="post-entry">
+    <h2><a href="{% url 'order_detail' order.pk %}">{{ order.order_number }}</a></h2>
+</div>
+{% endfor %}
+
+
+{% endblock content %}

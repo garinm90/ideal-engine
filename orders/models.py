@@ -21,3 +21,10 @@ class Order(models.Model):
     customer_number = models.ForeignKey(Customer, on_delete=models.CASCADE)
     date_created = models.DateField(auto_now_add=True)
     last_updated = models.DateField(auto_now=True)
+    description = models.CharField(max_length=200, null=True)
+
+    def __str__(self):
+        return self.order_number
+
+    def get_absolute_url(self):
+        return reverse('order_detail', args=[str(self.order_number)])
