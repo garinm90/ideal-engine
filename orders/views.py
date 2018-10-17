@@ -2,9 +2,13 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from . models import Customer, Order
+from . models import Customer, Order, Ride
 
 # Create your views here.
+
+class CustomerOrdersView(DetailView):
+    model = Customer
+    template_name = 'customer_orders.html'
 
 class CustomerListView(ListView):
     model = Customer
@@ -33,7 +37,7 @@ class CustomerUpdateView(UpdateView):
 class OrderCreateView(CreateView):
     model = Order
     template_name = 'order_new.html'
-    fields = ['customer_number', 'description']
+    fields = ['customer_number', 'description', 'ride']
 
 class OrderListView(ListView):
     model = Order
@@ -42,3 +46,8 @@ class OrderListView(ListView):
 class OrderDetailView(DetailView):
     model = Order
     template_name = 'order_detail.html'
+
+class RideCreateView(CreateView):
+    model = Ride
+    template_name = 'ride_new.html'
+    fields = '__all__'

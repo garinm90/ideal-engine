@@ -1,0 +1,16 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>{{ customer.customer_name }}</h2>
+{% for order in customer.orders.all %}
+<ul>
+        <li>Order Number: <a href="{% url 'order_detail' order %}"> {{order}} </a></li>
+        <li>Ride Name: {{ order.ride }}</li>
+        <li>Date Created: {{ order.date_created }}</li>
+        <li>Last Updated: {{ order.last_updated }}</li>    
+</ul>
+{% endfor %}
+
+{% endblock content %}
