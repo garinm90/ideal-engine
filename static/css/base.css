@@ -25,6 +25,13 @@ header h1 a {
         2rem;
 }
 
+.nav-right {
+    display: flex;
+    padding-top:
+        2rem;
+}
+
+
 .post-entry {
     margin-bottom:
         2rem;
@@ -49,3 +56,8 @@ header h1 a {
 .post-entry h2 a:hover {
     color: red;
     }
+
+.nav-right-links{
+        margin-left: 10px;
+        margin-right: 10px;
+}

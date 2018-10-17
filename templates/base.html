@@ -15,9 +15,11 @@
                 <h1><a href="{% url 'home' %}">Customers</a>
                     <!--| <a href="{% url 'order_list' %}">Orders</a></h1>-->
             </div>
-            <div class="nav-right">
-                <a href="{% url 'customer_new' %}"> + New Customer </a>
-                <a href="{% url 'order_new' %}"> + New Order</a>
+            <div class="nav-right"><ul>
+                <a href="{% url 'customer_new' %}" class="nav-right-links"> + New Customer </a>
+                <a href="{% url 'order_new' %}" class="nav-right-links"> + New Order </a>
+                <a href="{% url 'ride_new' %}" class="nav-right-links"> + New Ride</a>
+            </ul>
             </div>
         </header>
         {% block content %}

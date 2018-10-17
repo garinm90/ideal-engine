@@ -24,7 +24,8 @@ class Ride(models.Model):
 
     def get_absolute_url(self):
         return reverse_lazy('home')
-    
+
+
 class Order(models.Model):
     order_number = models.AutoField(primary_key=True)
     customer_number = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='orders')
@@ -38,3 +39,16 @@ class Order(models.Model):
 
     def get_absolute_url(self):
         return reverse('order_detail', args=[str(self.order_number)])
+
+
+class Controller(models.Model):
+    controller_model_choices = (
+        ('T8000', 'T8000'),
+        ('T4000', 'T4000'),
+        ('YM-ST4K', 'YM-ST4K'),
+        ('YM-ST8K', 'YM-ST8K'),
+    )
+    controller_number = models.IntegerField(unique=True)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='controller')
+    controller_model = models.CharField(max_length=100, choices=controller_model_choices, default='T8000')
+    

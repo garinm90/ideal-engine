@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from . models import Customer, Order, Ride
+from . models import Customer, Order, Ride, Controller
 
 # Create your views here.
 
@@ -37,7 +37,7 @@ class CustomerUpdateView(UpdateView):
 class OrderCreateView(CreateView):
     model = Order
     template_name = 'order_new.html'
-    fields = ['customer_number', 'description', 'ride']
+    fields = ['customer_number', 'ride', 'description']
 
 class OrderListView(ListView):
     model = Order
@@ -50,4 +50,9 @@ class OrderDetailView(DetailView):
 class RideCreateView(CreateView):
     model = Ride
     template_name = 'ride_new.html'
+    fields = '__all__'
+
+class ControllerCreateView(CreateView):
+    model = Controller
+    template_name = 'controller_new.html'
     fields = '__all__'
