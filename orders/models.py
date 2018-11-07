@@ -35,20 +35,35 @@ class Order(models.Model):
     ride = models.ForeignKey(Ride, on_delete=models.CASCADE, related_name='orders', null=True)
 
     def __str__(self):
-        return str(self.order_number)
+        return str(self.order_number) + ' ' + str(self.customer_number) + ' ' + str(self.ride)
 
     def get_absolute_url(self):
         return reverse('order_detail', args=[str(self.order_number)])
 
 
 class Controller(models.Model):
-    controller_model_choices = (
-        ('T8000', 'T8000'),
-        ('T4000', 'T4000'),
-        ('YM-ST4K', 'YM-ST4K'),
-        ('YM-ST8K', 'YM-ST8K'),
-    )
+    # controller_model_choices = (
+    #     ('T8000', 'T8000'),
+    #     ('T4000', 'T4000'),
+    #     ('YM-ST4K', 'YM-ST4K'),
+    #     ('YM-ST8K', 'YM-ST8K'),
+    # )
     controller_number = models.IntegerField(unique=True)
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='controller')
-    controller_model = models.CharField(max_length=100, choices=controller_model_choices, default='T8000')
-    
+    # controller_model = models.CharField(max_length=100, choices=controller_model_choices, default='T8000')
+    T8000 = models.IntegerField(null=True, default='0')
+    T4000 = models.IntegerField(null=True, default='0')
+    T1000 = models.IntegerField(null=True, default='0')
+    T1000s = models.IntegerField(null=True, default='0')
+    F16V3 = models.IntegerField(null=True, default='0')
+    F4V3 = models.IntegerField(null=True, default='0')
+    F2_Raspberry_Pi = models.IntegerField(null=True, default='0')
+    Raspberry_Pi = models.IntegerField(null=True, default='0')
+
+    Two_Forty_24_Volt = models.IntegerField(null=True, default='0')
+    Three_Twenty_24_Volt = models.IntegerField(null=True, default='0')
+
+    TP_Link = models.IntegerField(null=True, default='0')
+
+    Buck_Converter_24v_to_5v = models.IntegerField(null=True, default='0')
+    Buck_Converter_24v_to_12v = models.IntegerField(null=True, default='0')

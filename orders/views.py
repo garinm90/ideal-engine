@@ -56,3 +56,4 @@ class ControllerCreateView(CreateView):
     model = Controller
     template_name = 'controller_new.html'
     fields = '__all__'
+
