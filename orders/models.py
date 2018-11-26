@@ -69,4 +69,4 @@ class Controller(models.Model):
     Buck_Converter_24v_to_12v = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
-        return self.controller_number
+        return str(self.controller_number)
