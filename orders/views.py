@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from . models import Customer, Order, Ride, Controller
+from orders.models import Customer, Order, Ride, Controller
+from orders.forms import ControllerForm
 
 # Create your views here.
 
@@ -52,8 +53,27 @@ class RideCreateView(CreateView):
     template_name = 'ride_new.html'
     fields = '__all__'
 
-class ControllerCreateView(CreateView):
-    model = Controller
-    template_name = 'controller_new.html'
-    fields = '__all__'
+# class ControllerCreateView(CreateView):
+#     model = Controller
+#     template_name = 'controller_new.html'
+#     fields = '__all__'
 
+class ControllerDetailView(DetailView):
+    model = Controller
+    template_name = 'controller_detail.html'
+
+def create_controller(request):
+    if request.method == 'POST':
+        form = ControllerForm(request.POST)
+        if form.is_valid():
+            form.save(commit=True)
+            return redirect('home')
+        else:
+            print(form.errors)
+    else:
+        form = ControllerForm()
+    
+    context = {
+        'form': form,
+    }
+    return render(request, 'controller_new.html', context)

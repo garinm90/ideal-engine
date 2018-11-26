@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Customer Name: {{ controller.order.customer_number }}</h1>
+<h2>Controller #{{ controller.controller_number }}</h2>
+<ul> 
+    {% if controller.T8000 %}
+        <li>T800s: {{ controller.T8000 }}</li>
+    {% endif %}
+    {% if controller.T4000 %}
+        <li>T400s: {{ controller.T4000 }}</li>
+    {% endif %}
+    {% if controller.T1000 %}
+        <li>T1000: {{ controller.T1000 }}</li>
+    {% endif %}
+    {% if controller.T1000s %}
+        <li>T1000s: {{ controller.T1000s }}</li>
+    {% endif %}
+    {% if controller.F16V3 %}
+        <li>F16V3: {{ controller.F16V3 }}</li>
+    {% endif %}
+    {% if controller.F4V3 %}
+        <li>F4V3: {{ controller.F4V3 }}</li>
+    {% endif %}
+    {% if controller.F2_Raspberry_Pi %}
+        <li>F2_Raspberry Pi: {{ controller.F2_Raspberry_Pi }}</li>
+    {% endif %}
+    {% if controller.Raspberry_Pi %}
+        <li>Raspberrry Pis: {{ controller.Raspberry_Pi }}</li>
+    {% endif %}
+    {% if controller.Two_Forty_24_Volt %}
+        <li>240s: {{ controller.Two_Forty_24_Volt }}</li>
+    {% endif %}
+    {% if controller.Three_Twenty_24_Volt %}
+        <li>320s: {{ controller.Three_Twenty_24_Volt }}</li>
+    {% endif %}
+    {% if controller.TP_Link %}
+        <li>TP Links: {{ controller.TP_Link }}</li>
+    {% endif %}
+
+</ul>
+
+
+
+{% endblock content %}

@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/home/max/.local/share/virtualenvs/dennys_project-MauuVQ-v/bin/python"
+    "python.pythonPath": "/home/max/.local/share/virtualenvs/ideal-engine-ulU9U82S/bin/python",
+    "python.linting.pylintEnabled": true
 }
