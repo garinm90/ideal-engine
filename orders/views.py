@@ -34,6 +34,10 @@ class CustomerUpdateView(UpdateView):
     fields = '__all__'
     template_name = 'customer_edit.html'
 
+class OrderUpdateView(UpdateView):
+    model = Order
+    fields = '__all__'
+    template_name = 'order_edit.html'
 
 class OrderCreateView(CreateView):
     model = Order

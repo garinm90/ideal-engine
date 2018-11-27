@@ -72,6 +72,9 @@ class Controller(models.Model):
     def __str__(self):
         return 'Cont # ' + str(self.controller_number) + ' | ' + str(self.order.customer_number) + ' | ' + str(self.order.ride)
 
+    def get_absolute_url(self):
+        return reverse('controller_detail', args=[str(self.controller_number)])
+
 class ControllerImage(models.Model):
     controller = models.ForeignKey(Controller, on_delete=models.CASCADE, related_name='controller_picture')
     controller_image = models.ImageField(upload_to='controller_images/%Y/%m/%d')

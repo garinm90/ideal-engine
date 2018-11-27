@@ -6,7 +6,8 @@
 {% for order in object_list %}
 <div class="post-entry">
 
-    <h2>Order Number: <a href="{% url 'order_detail' order.pk %}">{{ order.order_number }}</a></h2>Customer Name: <a href="{% url 'customer_detail' order.customer_number.pk %}"> {{ order.customer_number }}</a> </h2>
+    <h2>Order Number: <a href="{% url 'order_detail' order.pk %}">{{ order.order_number }}</a></h2>Customer Name: <a
+        href="{% url 'customer_detail' order.customer_number.pk %}"> {{ order.customer_number }}</a> </h2>
 </div>
 {% endfor %}
 
