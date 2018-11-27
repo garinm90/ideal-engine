@@ -3,6 +3,8 @@
 {% block content %}
 <h1>Customer Name: {{ controller.order.customer_number }}</h1>
 <h2>Controller #{{ controller.controller_number }}</h2>
+<h2>Ride: {{ controller.order.ride }}</h2>
+<a href="{% url 'upload_image' %}">Upload Images</a>
 <ul>
     {% if controller.T8000 %}
     <li>T800s: {{ controller.T8000 }}</li>

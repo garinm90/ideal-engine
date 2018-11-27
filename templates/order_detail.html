@@ -7,9 +7,13 @@
     <p><strong>Customer Name: </strong> <a href="{% url 'customer_detail' order.customer_number.pk %}"> {{ order.customer_number }}</p></a>
     <p></p><strong>Order Description: </strong>{{ order.description }}</p>
     <p></p><strong>Date Ordered: </strong>{{ order.date_created }}</p>
+    {% if order.controller.all %}
     {% for controller in order.controller.all %}
     <p></p><strong>Controllers </strong># <a href="{% url 'controller_detail' controller.pk %}">{{ controller }}</a></p>
     {% endfor %}
+    {% else %}
+    <a href="{% url 'controller_new' %}">Add Controller</a>
+    {% endif %}
 </div>
 
 
