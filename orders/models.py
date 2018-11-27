@@ -48,7 +48,7 @@ class Controller(models.Model):
     #     ('YM-ST4K', 'YM-ST4K'),
     #     ('YM-ST8K', 'YM-ST8K'),
     # )
-    controller_number = models.IntegerField(unique=True)
+    controller_number = models.IntegerField(unique=True, primary_key=True)
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='controller')
     # controller_model = models.CharField(max_length=100, choices=controller_model_choices, default='T8000')
     T8000 = models.IntegerField(null=True, blank=True)
@@ -76,7 +76,7 @@ class Controller(models.Model):
         return reverse('controller_detail', args=[str(self.controller_number)])
 
 class ControllerImage(models.Model):
-    controller = models.ForeignKey(Controller, on_delete=models.CASCADE, related_name='controller_picture')
+    controller_number = models.ForeignKey(Controller, on_delete=models.CASCADE, related_name='controller_picture')
     controller_image = models.ImageField(upload_to='controller_images/%Y/%m/%d')
 
     def get_absolute_url(self):

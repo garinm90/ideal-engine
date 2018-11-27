@@ -32,5 +32,5 @@ class ControllerImageForm(forms.ModelForm):
         
     class Meta:
         model = ControllerImage
-        fields = ['controller', 'controller_image']
+        fields = ['controller_number', 'controller_image']
         
