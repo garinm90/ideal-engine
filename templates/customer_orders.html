@@ -17,7 +17,7 @@
         <h3>Controllers</h3>
         <ul>
         {% for controller in order.controller.all %}
-        <li><a href="{% url 'controller_detail' controller.pk%}">{{ controller.controller_number }} </a></li>
+        <li><a href="{% url 'controller_detail' controller.controller_number %}">{{ controller.controller_number }} </a></li>
         {% endfor %}
 </ul>
 {% endfor %}

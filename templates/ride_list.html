@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Current Rides: </h1>
+
+{% for ride in object_list %}
+
+<h2>{{ ride.ride_name }}</h2>
+
+{% endfor %}
+
+{% endblock content %}

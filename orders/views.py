@@ -85,6 +85,11 @@ def create_controller(request):
     }
     return render(request, 'controller_new.html', context)
 
+class ControllerUpdateView(UpdateView):
+    model = Controller
+    template_name = 'controller_edit.html'
+    form_class = ControllerForm
+
 def image_upload(request):
     if request.method == 'POST':
         form = ControllerImageForm(request.POST, request.FILES)
