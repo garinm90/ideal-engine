@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'orders.apps.OrdersConfig',
     'crispy_forms',
+    'sorl.thumbnail',
 ]
 
 MIDDLEWARE = [

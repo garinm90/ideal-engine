@@ -53,14 +53,17 @@ class RideCreateView(CreateView):
     template_name = 'ride_new.html'
     fields = '__all__'
 
-# class ControllerCreateView(CreateView):
-#     model = Controller
-#     template_name = 'controller_new.html'
-#     fields = '__all__'
+class RideListView(ListView):
+    model = Ride
+    template_name = 'ride_list.html'
 
 class ControllerDetailView(DetailView):
     model = Controller
     template_name = 'controller_detail.html'
+
+class ControllerListView(ListView):
+    model = Controller
+    template_name = 'controller_list.html'
 
 def create_controller(request):
     if request.method == 'POST':

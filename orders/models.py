@@ -31,7 +31,7 @@ class Order(models.Model):
     customer_number = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='orders')
     date_created = models.DateField(auto_now_add=True)
     last_updated = models.DateField(auto_now=True)
-    description = models.CharField(max_length=200, null=True)
+    description = models.CharField(max_length=200, null=True, blank=True)
     ride = models.ForeignKey(Ride, on_delete=models.CASCADE, related_name='orders', null=True)
 
     def __str__(self):
@@ -70,7 +70,7 @@ class Controller(models.Model):
     controller_pictures = models.FileField(upload_to='controller_uploads/%Y/%m/%d', null=True)
 
     def __str__(self):
-        return str(self.controller_number)
+        return 'Cont # ' + str(self.controller_number) + ' | ' + str(self.order.customer_number) + ' | ' + str(self.order.ride)
 
 class ControllerImage(models.Model):
     controller = models.ForeignKey(Controller, on_delete=models.CASCADE, related_name='controller_picture')
