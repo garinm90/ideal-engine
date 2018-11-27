@@ -14,5 +14,7 @@ urlpatterns = [
     path('order/new', views.OrderCreateView.as_view(), name='order_new'),
     path('ride/new', views.RideCreateView.as_view(), name='ride_new'),
     path('controller/new', views.create_controller, name='controller_new'),
-    path('controller/<int:pk>/', views.ControllerDetailView.as_view(), name='controller_detail')
+    path('controller/<int:pk>/', views.ControllerDetailView.as_view(), name='controller_detail'),
+    path('controller/image', views.image_upload, name='upload_image')
 ]
+

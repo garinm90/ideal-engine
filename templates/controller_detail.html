@@ -37,7 +37,9 @@
     {% if controller.TP_Link %}
         <li>TP Links: {{ controller.TP_Link }}</li>
     {% endif %}
-
+    {% for image in controller.controller_picture.all %}
+    <img src="{{ image.controller_image.url }}" alt="">
+    {% endfor %}
 </ul>
 
 

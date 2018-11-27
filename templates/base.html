@@ -13,12 +13,14 @@
     <div class="container">
         <header>
             <div class="nav-left">
-                <h1><a href="{% url 'home' %}">Customers</a>
+                <h1><a href="{% url 'home' %}">Customer Information</a>
                     <!--| <a href="{% url 'order_list' %}">Orders</a></h1>-->
             </div>
             <div class="nav-right"><ul>
                 <a href="{% url 'customer_new' %}" class="nav-right-links"> + New Customer </a>
                 <a href="{% url 'ride_new' %}" class="nav-right-links"> + New Ride</a>
+                <a href="{% url 'controller_new' %}" class="nav-right-links"> + New Controller</a>
+                <a href="{% url 'home' %}" class="nav-right-links"> | List Customers</a
             </ul>
             </div>
         </header>

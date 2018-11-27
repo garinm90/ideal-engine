@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, FormView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from orders.models import Customer, Order, Ride, Controller
-from orders.forms import ControllerForm
+from orders.forms import ControllerForm, ControllerImageForm
 
 # Create your views here.
 
@@ -64,7 +64,7 @@ class ControllerDetailView(DetailView):
 
 def create_controller(request):
     if request.method == 'POST':
-        form = ControllerForm(request.POST)
+        form = ControllerForm(request.POST, request.FILES)
         if form.is_valid():
             form.save(commit=True)
             return redirect('home')
@@ -77,3 +77,15 @@ def create_controller(request):
         'form': form,
     }
     return render(request, 'controller_new.html', context)
+
+def image_upload(request):
+    if request.method == 'POST':
+        form = ControllerImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save(commit=True)
+            return redirect('home')
+        else:
+            print(form.erros)
+    else:
+        form = ControllerImageForm()
+    return render (request, 'upload_image.html', {'form':form})

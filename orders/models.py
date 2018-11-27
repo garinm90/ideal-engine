@@ -67,6 +67,14 @@ class Controller(models.Model):
 
     Buck_Converter_24v_to_5v = models.IntegerField(null=True, blank=True)
     Buck_Converter_24v_to_12v = models.IntegerField(null=True, blank=True)
+    controller_pictures = models.FileField(upload_to='controller_uploads/%Y/%m/%d', null=True)
 
     def __str__(self):
         return str(self.controller_number)
+
+class ControllerImage(models.Model):
+    controller = models.ForeignKey(Controller, on_delete=models.CASCADE, related_name='controller_picture')
+    controller_image = models.ImageField(upload_to='controller_images/%Y/%m/%d')
+
+    def get_absolute_url(self):
+        return reverse_lazy('home')
