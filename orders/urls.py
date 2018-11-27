@@ -15,6 +15,7 @@ urlpatterns = [
     path('ride/new', views.RideCreateView.as_view(), name='ride_new'),
     path('controller/new', views.create_controller, name='controller_new'),
     path('controller/<int:pk>/', views.ControllerDetailView.as_view(), name='controller_detail'),
-    path('controller/image', views.image_upload, name='upload_image')
+    path('controller/image', views.image_upload, name='upload_image'),
+    path('controller/', views.ControllerListView.as_view(), name='controller_list')
 ]
 
