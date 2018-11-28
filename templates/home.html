@@ -6,7 +6,7 @@
 {% for customer in object_list %}
 <div class="post-entry">
     <h2><a href="{% url 'customer_detail' customer.pk %}">{{ customer.customer_name }}</a></h2>
-    <a href="{% url 'customer_orders' %}">Orders</a>
+    <a href="{% url 'customer_orders' customer.pk %}">Orders</a>
 </div>
 {% endfor %}
 
